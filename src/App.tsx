@@ -33,7 +33,7 @@ const App: React.FC = () => {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
         };
-        await axios.delete(
+        await fetch(
           `https://procom-interview-employee-test.azurewebsites.net/Employee/${record.id}`,
           requestOptions
         ).then((response) => {
@@ -115,7 +115,7 @@ const App: React.FC = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),
               };
-              await axios.put(
+              await fetch(
                 `https://procom-interview-employee-test.azurewebsites.net/Employee/${values.id}`,
                 requestOptions
               ).then((response) => {
@@ -132,7 +132,7 @@ const App: React.FC = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),
               };
-              await axios.post(
+              await fetch(
                 `https://procom-interview-employee-test.azurewebsites.net/Employee`,
                 requestOptions
               ).then((response) => {
@@ -331,7 +331,7 @@ const App: React.FC = () => {
       <Table
         columns={columns} 
         dataSource={employeeData} 
-        pagination={{ pageSize: 10 }}
+        pagination={{ pageSize: 1 }}
         />
                       
       <Button type="primary" onClick={() => createModal()} style={{
